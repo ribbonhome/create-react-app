@@ -330,7 +330,8 @@ module.exports = function (webpackEnv) {
         }),
         ...(modules.webpackAliases || {}),
         // Custom aliases
-        '@src': '/src'
+        '@src': '/src',
+        '@ribbon/quilt': path.resolve(__dirname,'../node_modules/@ribbon/quilt/src'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -680,6 +681,7 @@ module.exports = function (webpackEnv) {
       new WebpackManifestPlugin({
         fileName: 'asset-manifest.json',
         publicPath: paths.publicUrlOrPath,
+        // writeToFileEmit: true,
         generate: (seed, files, entrypoints) => {
           const manifestFiles = files.reduce((manifest, file) => {
             manifest[file.name] = file.path;
