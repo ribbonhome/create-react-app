@@ -331,7 +331,6 @@ module.exports = function (webpackEnv) {
         ...(modules.webpackAliases || {}),
         // Custom aliases
         '@src': '/src',
-        '@ribbon/quilt': path.resolve(__dirname,'../node_modules/@ribbon/quilt/src'),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
